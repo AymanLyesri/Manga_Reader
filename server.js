@@ -1,21 +1,7 @@
 const express = require("express");
 const app = express();
-const mangoose = require("mongoose");
-const Blog = require("./models/blog.js");
 const path = require("path");
 const MFA = require("mangadex-full-api");
-
-//connect to database
-dbURL =
-  "mongodb+srv://ayman:avalid22@manga.3tmoe.mongodb.net/manga?retryWrites=true&w=majority";
-mangoose
-  .connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => {
-    console.log("connected to db");
-  })
-  .catch((err) => {
-    console.log("error connecting to db", err);
-  });
 
 //set view engine
 app.set("view engine", "ejs");
@@ -69,5 +55,6 @@ app.post("/show_chapter", (req, res) => {
     .catch(console.error);
 });
 
-//listen to port 3000
+//listen to port
+const port = process.env.PORT || 3000;
 app.listen(3000);
