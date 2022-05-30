@@ -32,7 +32,7 @@ app.post("/search_manga", (req, res) => {
     let cover = [];
 
     for (var i = 0; i < list.length; i++) {
-      list[i].mainCover = (await list[i].mainCover.resolve()).image256;
+      list[i].mainCover = (await list[i].mainCover.resolve()).image512;
     }
 
     res.render("show_manga.ejs", {
@@ -56,7 +56,7 @@ app.post("/search_chapter", (req, res) => {
       // Get a manga:
 
       let manga = await MFA.Manga.get(manga_id, true);
-      let cover = (await manga.mainCover.resolve()).image256;
+      let cover = (await manga.mainCover.resolve()).image512;
 
       // Get the manga's chapters:
       let chapters = await manga.getFeed(
