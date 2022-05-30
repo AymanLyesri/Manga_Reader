@@ -19,6 +19,26 @@ app.get("/search_manga", (req, res) => {
   res.render("search_manga.ejs");
 });
 
+// app.post("/search_manga", (req, res) => {
+//   var manga_title = req.body.manga_title;
+//   var manga_chapter = req.body.manga_chapter;
+
+//   MFA.login("aymanthebruhman", "avalid22").then(async () => {
+//     const list = await MFA.Manga.search({
+//       title: manga_title,
+//       limit: Infinity,
+//     });
+
+//     res.render("show_manga.ejs", { list: list });
+
+//     console.log(list.length, "results for", manga_title);
+//     console.log(
+//       "The first result was written by",
+//       (await list[0].authors[0].resolve()).name
+//     );
+//   });
+// });
+
 app.post("/show_chapter", (req, res) => {
   var manga_title = req.body.manga_title;
   var manga_chapter = req.body.manga_chapter;
@@ -28,9 +48,13 @@ app.post("/show_chapter", (req, res) => {
     .then(async () => {
       console.log("logged in");
       // Get a manga:
+
       let manga = await MFA.Manga.getByQuery({
         title: manga_title,
+        order: { createdAt: "asc" },
       });
+
+      console.log(manga.year);
 
       // Get the manga's chapters:
       let chapters = await manga.getFeed(
@@ -51,6 +75,7 @@ app.post("/show_chapter", (req, res) => {
         manga_title: manga_title,
         manga_chapter: manga_chapter,
         next_chapter: next_chapter,
+        manga: manga,
       });
     })
     .catch(console.error);
