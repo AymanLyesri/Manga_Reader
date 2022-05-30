@@ -15,9 +15,10 @@
     <form class="show_manga_form" action="/search_chapter" method="POST">
       <h1><%=element.title%></h1>
       <input type="hidden" name="manga_id" value="<%=element.id%>" />
-      <img class="w-25 h-25" src="<%=element.mainCover%>" />
       <input type="submit" value="watch" />
     </form>
+
+    <img src="<%=element.mainCover%>" />
 
     <%})%>
   </body>
