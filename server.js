@@ -7,10 +7,11 @@ const MFA = require("mangadex-full-api");
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }));
 app.use("/css", express.static("./bootstrap/css"));
+app.use("/include", express.static("./views"));
 
 //get the first page
 app.get("/", (req, res) => {
-  res.render("v1.ejs", { name: "bitch" });
+  res.render("index.ejs");
 });
 
 //get the 'search_manga' page

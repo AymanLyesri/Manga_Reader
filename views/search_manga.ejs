@@ -1,6 +1,38 @@
-<form action="/show_chapter" method="POST">
-  <label for="title">Manga title</label
-  ><input type="text" name="manga_title" /> <label for="chapter">Chapter</label
-  ><input type="number" name="manga_chapter" />
-  <input type="submit" value="go" />
-</form>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <link rel="stylesheet" href="style/style.css" />
+    <title>welcome</title>
+  </head>
+  <body>
+    <p class="text-center">powered by AymanLyesri and MangaDex</p>
+
+    <div class="container">
+      <div class="small-box mx-auto">
+        <form action="/show_chapter" method="POST">
+          <label for="title">Manga title</label
+          ><input
+            type="text"
+            class="form-control"
+            placeholder="Enter title"
+            name="manga_title"
+          />
+          <br />
+          <label for="chapter">Chapter</label
+          ><input
+            class="form-control"
+            placeholder="Enter chapter"
+            type="number"
+            name="manga_chapter"
+          />
+          <br />
+          <input class="btn btn-outline-light" type="submit" value="go" />
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

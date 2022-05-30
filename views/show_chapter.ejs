@@ -5,17 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="include/style.css" />    
     <title>Document</title>
 </head>
 <body>
 
-<p class="text-center"><%= panels.length %>panels                     powered by MangaDex and Ayman Lyesri</p>
+<p class="text-center">[<%= panels.length %> panels]                     powered by AymanLyesri and MangaDex</p>
 
-<div class="container">
+<div class="container img-container">
 
-<% panels.forEach(panel => { %>
+<%  panels.forEach(panel => { %>
 
-    <div class="small-box mx-lg-auto"><img src="<%= panel %>" style="width: 100%;"></img></div>
+    <div class="small-box mx-lg-auto" id="#"><img src="<%= panel %>" style="width: 100%;"></img></div>
 
 <% }); %>
 
@@ -26,6 +27,6 @@
 </form>
 
 </div>
-
+<script src="include/script.js"></script>
 </body>
 </html>
