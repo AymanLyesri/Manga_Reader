@@ -1,32 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="include/style.css" />    
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="include/style.css" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body class="bg-dark text-light">
+    <p class="text-center">
+      [<%=panels.length%> panels][chapter: <%=manga_chapter%>] powered by
+      AymanLyesri and MangaDex
+    </p>
 
-<p class="text-center">[<%=panels.length%> panels][year <%=manga.year%>]                     powered by AymanLyesri and MangaDex</p>
 
-<div class="container img-container">
+    <%panels.forEach(panel => {%>
+        <div class="small-box mx-auto">
+            <img src="<%=panel%>" style="width: 100%;border-bottom: 10px solid black;"></img>
+        </div>
+    <%});%>
 
-<%  panels.forEach(panel => { %>
 
-    <div class="small-box mx-lg-auto" id="#"><img src="<%= panel %>" style="width: 100%;"></img></div>
-
-<% }); %>
-
-<form class="w-100" action="/show_chapter" method="POST">
-    <input type="hidden" name="manga_title" value="<%= manga_title %>">
-    <input type="hidden" name="manga_chapter" value="<%= next_chapter %>">
-    <input class="small-box mx-auto btn btn-outline-light" type="submit" value="next chapter">
-</form>
-
-</div>
-<script src="include/script.js"></script>
-</body>
+    <div class="container img-container">
+      <form class="w-100 show_chapter_form" action="/show_chapter" method="POST">
+        <input type="hidden" name="manga_title" value="<%= manga_title %>" />
+        <input type="hidden" name="manga_chapter" value="<%= next_chapter %>" />
+        <input
+          class="small-box mx-auto btn btn-outline-light"
+          type="submit"
+          value="next chapter"
+        />
+      </form>
+    </div>
+    <script src="include/script.js"></script>
+  </body>
 </html>

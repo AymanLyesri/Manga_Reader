@@ -8,26 +8,18 @@
     <link rel="stylesheet" href="include/style.css" />
     <title>welcome</title>
   </head>
-  <body>
+  <body class="bg-dark text-light">
     <p class="text-center">powered by AymanLyesri and MangaDex</p>
 
     <div class="container">
       <div class="small-box mx-auto">
-        <form action="/show_chapter" method="POST">
+        <form class="search_manga_form" action="/search_manga" method="POST">
           <label for="title">Manga title</label
           ><input
             type="text"
             class="form-control"
             placeholder="Enter title"
             name="manga_title"
-          />
-          <br />
-          <label for="chapter">Chapter</label
-          ><input
-            class="form-control"
-            placeholder="Enter chapter"
-            type="number"
-            name="manga_chapter"
           />
           <br />
           <input class="btn btn-outline-light" type="submit" value="go" />

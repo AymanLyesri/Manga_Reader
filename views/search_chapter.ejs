@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <link rel="stylesheet" href="include/style.css" />
+    <title>welcome</title>
+  </head>
+  <body class="bg-dark text-light">
+    <p class="text-center">powered by AymanLyesri and MangaDex</p>
+    <table>
+      <tr>
+        <td class="form">
+          <form
+            class="search_chapter_form"
+            action="/show_chapter"
+            method="POST"
+          >
+            <input type="hidden" name="manga_id" value="<%=manga.id%>" />
+            <select name="manga_chapter">
+              <% for (let i = 1; i <= chapters; i++) {%>
+              <option value="<%=i%>"><%=i%></option>
+              <%}%>
+            </select>
+            <input type="image" src="<%=cover%>" />
+          </form>
+        </td>
+        <td class="info">
+          <h1>title</h1>
+          <p><%=manga.title%></p>
+          <h1>chapters</h1>
+          <p><%=chapters%></p>
+          <h1>Description</h1>
+          <p><%=manga.description.substring(0,500)%>...</p>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
