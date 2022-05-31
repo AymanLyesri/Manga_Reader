@@ -24,19 +24,6 @@
         width: 50%;
     }
 }
-
-form{
-    width: 50%;
-    margin-top: 20%;
-    animation-name: example;
-    animation-duration: 1s;
-}
-
-img{
-    animation-name: example;
-    animation-duration: 3s;
-}
-
 table{
     width: 100%;
 }
@@ -62,6 +49,31 @@ table .info p{
 .show_manga_form{
     width: 50%;
     margin-top: 5%;
-    animation-name: example;
-    animation-duration: 1s;
+    animation-name: show_manga_form_up;
+    animation-duration: 2s;
+}
+
+@keyframes show_manga_form_up {
+    0% {
+        margin-top: 100%;
+    }
+
+    100% {
+        margin-top: 5%;
+    }
+}
+
+.show_chapter_img{
+    animation-name: show_chapter_img_up;
+    animation-duration: 2s;
+}
+
+@keyframes show_chapter_img_up {
+    0% {
+        margin-top: 100%;
+    }
+
+    100% {
+        margin-top: 0%;
+    }
 }

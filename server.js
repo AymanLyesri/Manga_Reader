@@ -8,8 +8,6 @@ var fs = require("fs"),
 //set view engine
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }));
-app.use("/css", express.static("./bootstrap/css"));
-app.use("/include", express.static("./views"));
 app.use("/", express.static("./"));
 
 //get the first page////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -64,7 +62,7 @@ app.post("/search_manga", (req, res) => {
 ////////////////////////////////////////////////////////////////////////////////////////////
 app.post("/search_chapter", (req, res) => {
   var manga_id = req.body.manga_id;
-  var cover_id = req.body.cover_id;
+  var cover_id = req.body.cover_id - 1;
 
   MFA.login("aymanthebruhman", "avalid22")
     .then(async () => {

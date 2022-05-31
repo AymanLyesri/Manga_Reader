@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/bootstrap.css" />
-    <link rel="stylesheet" href="include/style.css" />
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="/views/style.css" />
     <title>Document</title>
   </head>
   <body class="bg-dark text-light">
@@ -16,7 +16,7 @@
 
 
     <%panels.forEach(panel => {%>
-        <div class="small-box mx-auto">
+        <div class="small-box mx-auto show_chapter_img">
             <img src="<%=panel%>" style="width: 100%;border-bottom: 10px solid black;"></img>
         </div>
     <%});%>
