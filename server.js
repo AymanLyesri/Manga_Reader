@@ -24,7 +24,6 @@ app.get("/search_manga", (req, res) => {
 ////////////////////////////////////////////////////////////////////////////////////////////
 app.post("/search_manga", (req, res) => {
   var manga_title = req.body.manga_title;
-  var manga_chapter = req.body.manga_chapter;
 
   MFA.login("aymanthebruhman", "avalid22").then(async () => {
     const list = await MFA.Manga.search({
@@ -65,6 +64,7 @@ app.post("/search_manga", (req, res) => {
 ////////////////////////////////////////////////////////////////////////////////////////////
 app.post("/search_chapter", (req, res) => {
   var manga_id = req.body.manga_id;
+  var cover_id = req.body.cover_id;
 
   MFA.login("aymanthebruhman", "avalid22")
     .then(async () => {
@@ -72,7 +72,6 @@ app.post("/search_chapter", (req, res) => {
       // Get a manga:
 
       let manga = await MFA.Manga.get(manga_id, true);
-      let cover = (await manga.mainCover.resolve()).image256;
 
       // Get the manga's chapters:
       let chapters = await manga.getFeed(
@@ -85,7 +84,7 @@ app.post("/search_chapter", (req, res) => {
       res.render("search_chapter.ejs", {
         chapters: chapters.length,
         manga: manga,
-        cover: cover,
+        cover: cover_id,
       });
 
       // Get the first chapter's pages:
