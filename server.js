@@ -37,6 +37,17 @@ app.post("/search_manga", (req, res) => {
       });
     };
 
+    let DIR = "./img/";
+
+    fs.readdir(DIR, (error, filesInDirectory) => {
+      if (error) throw error;
+
+      for (let file of filesInDirectory) {
+        console.log("File removed" + " : " + file);
+        fs.unlinkSync(DIR + file);
+      }
+    });
+
     for (var i = 0; i < list.length; i++) {
       // list[i].mainCover = (await list[i].mainCover.resolve()).image256;
       download(
