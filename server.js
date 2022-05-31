@@ -2,12 +2,15 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const MFA = require("mangadex-full-api");
+var fs = require("fs"),
+  request = require("request");
 
 //set view engine
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }));
 app.use("/css", express.static("./bootstrap/css"));
 app.use("/include", express.static("./views"));
+app.use("/", express.static("./"));
 
 //get the first page////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 app.get("/", (req, res) => {
@@ -29,8 +32,23 @@ app.post("/search_manga", (req, res) => {
       limit: Infinity,
     });
 
+    var download = function (uri, filename, callback) {
+      request.head(uri, function (err, res, body) {
+        console.log("content-type:", res.headers["content-type"]);
+        console.log("content-length:", res.headers["content-length"]);
+        request(uri).pipe(fs.createWriteStream(filename)).on("close", callback);
+      });
+    };
+
     for (var i = 0; i < list.length; i++) {
-      list[i].mainCover = (await list[i].mainCover.resolve()).image256;
+      // list[i].mainCover = (await list[i].mainCover.resolve()).image256;
+      download(
+        (await list[i].mainCover.resolve()).image256,
+        "./img/" + i + ".png",
+        function () {
+          console.log("done" + i);
+        }
+      );
     }
 
     res.render("show_manga.ejs", {
