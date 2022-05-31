@@ -58,3 +58,10 @@ table .info {
 table .info p{
     width: 50%;
 }
+
+.show_manga_form{
+    width: 50%;
+    margin-top: 5%;
+    animation-name: example;
+    animation-duration: 1s;
+}

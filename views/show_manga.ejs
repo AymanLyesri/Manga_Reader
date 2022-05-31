@@ -7,13 +7,15 @@
     <link rel="stylesheet" href="/css/bootstrap.css" />
     <link rel="stylesheet" href="include/style.css" />
 
+    <% list.forEach(element=> {%>
+
+    <link rel="prefetch" href="<%=element.mainCover%>" />
+
+    <%})%>
+
     <title>Show mangas</title>
   </head>
   <body class="bg-dark text-light">
-    <img
-      src="https://sj2qwe350gk7w.t5k83gr3d0m6a.mangadex.network:443/JTtzWZ33DAAAW9PTG7ltYDnHOOLTp_OF_39VzpyTTrrT1xtdD0kxGLMgm-zSWR0vK_BllBolbVVBRwXXNkQ3DI7p45u_1bDDkZTv6CP1PkPkN2DNRRGKYJDJnw_hj8KpwhncvUx0doBe-WeVkR9030tqyd5Twqv8Q7Y0-w3aom5hwsOhlfNtOgK0dHZUvTit/data/341779c5d84ca933e004f042ca2ba529/x1-0ce7ba029cbf73a69765737148b85985283f8d6e3d6d29a5006da91fb2bd35af.jpg"
-    />
-
     <% list.forEach(element=> {%>
 
     <form class="show_manga_form" action="/search_chapter" method="POST">
