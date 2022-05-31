@@ -11,6 +11,22 @@
   <body class="bg-dark text-light">
     <p class="text-center">powered by AymanLyesri and MangaDex</p>
 
+    <div class="container">
+      <div class="small-box mx-auto">
+        <form class="search_manga_form" action="/search_manga" method="POST">
+          <label for="title">Manga title</label
+          ><input
+            type="text"
+            class="form-control"
+            placeholder="Enter title"
+            name="manga_title"
+          />
+          <br />
+          <input class="btn btn-outline-light" type="submit" value="go" />
+        </form>
+      </div>
+    </div>
+
     <%var x=0; list.forEach(element=> {%>
 
     <form class="show_manga_form" action="/search_chapter" method="POST">
