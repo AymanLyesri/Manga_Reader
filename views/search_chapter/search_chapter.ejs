@@ -19,11 +19,11 @@
           >
             <input type="hidden" name="manga_id" value="<%=manga.id%>" />
             <select name="manga_chapter">
-              <% for (let i = 1; i <= chapters; i++) {%>
+              <% for (let i = 0; i < chapters; i++) {%>
               <option value="<%=i%>"><%=i%></option>
               <%}%>
             </select>
-            <input type="image" src="/img/<%=cover%>.png" />
+            <input type="image" src="/img/img<%=cover%>.png" />
           </form>
         </td>
         <td class="info">
@@ -32,7 +32,9 @@
           <h1>chapters</h1>
           <p><%=chapters%></p>
           <h1>Description</h1>
-          <p><%=manga.description.substring(0,500)%>...</p>
+          <% if(manga.description!=""){%>
+          <p><%=manga.description%>...</p>
+          <%}%>
         </td>
       </tr>
     </table>
