@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="/views/show_manga/style.css" />
+    <title>Show mangas</title>
+  </head>
+  <body class="bg-dark text-light">
+    <p class="text-center">powered by AymanLyesri and MangaDex</p>
+
+    <div class="container">
+      <div class="small-box mx-auto">
+        <form class="search_manga_form" action="/show_manga" method="POST">
+          <label for="title">Manga title</label
+          ><input
+            type="text"
+            class="form-control"
+            placeholder="Enter title"
+            name="manga_title"
+          />
+          <br />
+          <input class="btn btn-outline-light" type="submit" value="go" />
+        </form>
+      </div>
+    </div>
+
+    <h1><%= error %></h1>
+
+    <%var x=0; list.forEach(element=> {%>
+
+    <form class="show_manga_form" action="/search_chapter" method="POST">
+      <table>
+        <tbody>
+          <tr>
+            <td style="width: 50%">
+              <h1><%=element.title%></h1>
+              <input type="hidden" name="cover_id" value="<%=x%>" />
+              <input type="hidden" name="manga_id" value="<%=element.id%>" />
+              <input
+                class="img-thumbnail"
+                type="image"
+                src="/img/img<%=x++%>.png"
+              />
+            </td>
+            <td style="width: 50%">
+              <input class="show_manga_submit" type="submit" value="go" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+
+    <%})%>
+
+    <form class="show_manga_next" action="/show_manga" method="POST">
+      <input type="hidden" name="manga_title" value="<%=manga_title%>" />
+      <input type="hidden" name="offset" value="<%=offset+4%>" />
+      <input class="btn btn-outline-warning" type="submit" value="next" />
+    </form>
+
+    <%if (offset!=0) {%>
+
+    <form class="show_manga_next" action="/show_manga" method="POST">
+      <input type="hidden" name="manga_title" value="<%=manga_title%>" />
+      <input type="hidden" name="offset" value="<%=offset-4%>" />
+      <input
+        class="btn btn-outline-warning"
+        onclick="history.back()"
+        type="submit"
+        value="previous"
+      />
+    </form>
+    <%}%>
+  </body>
+</html>

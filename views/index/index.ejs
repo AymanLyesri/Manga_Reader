@@ -5,25 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.css" />
+<<<<<<< HEAD:views/index.ejs
     <link rel="stylesheet" href="/views/style.css" />
+=======
+    <link rel="stylesheet" href="/views/index/style.css" />
+>>>>>>> test:views/index/index.ejs
     <title>welcome</title>
   </head>
   <body class="bg-dark text-light">
     <p class="text-center">powered by AymanLyesri and MangaDex</p>
 
-    <div class="container">
+    <div class="container" id="welcome">
       <div class="small-box mx-auto">
-        <form class="search_manga_form" action="/search_manga" method="POST">
-          <label for="title">Manga title</label
-          ><input
-            type="text"
-            class="form-control"
-            placeholder="Enter title"
-            name="manga_title"
-          />
-          <br />
-          <input class="btn btn-outline-light" type="submit" value="go" />
-        </form>
+        <h1 class="text-center">MangaReader</h1>
+        <div class="container mx-auto w-50">
+          <a class="btn btn-outline-light w-100" href="search_manga"
+            >search manga</a
+          >
+        </div>
       </div>
     </div>
   </body>

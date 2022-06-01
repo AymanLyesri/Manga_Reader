@@ -1,0 +1,19 @@
+
+#welcome{
+    animation-name: example;
+    animation-duration: 1s;
+    margin-top: 20%;
+}
+
+@keyframes example {
+    0% {
+        margin-top: 100%;
+    }
+
+    100% {
+        margin-top: 20%;
+    }
+}
+
+    
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="/views/search_manga/style.css" />
+    <title>welcome</title>
+  </head>
+  <body class="bg-dark text-light">
+    <p class="text-center">powered by AymanLyesri and MangaDex</p>
+
+    <div class="container">
+      <div class="small-box mx-auto">
+        <form class="search_manga_form" action="/show_manga" method="POST">
+          <table>
+            <tbody>
+              <tr>
+                <label for="title">Manga title</label>
+              </tr>
+              <tr>
+                <td>
+                  <input type="hidden" name="offset" value="0" />
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter title"
+                    name="manga_title"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="btn btn-outline-light"
+                    type="submit"
+                    value="search"
+                  />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

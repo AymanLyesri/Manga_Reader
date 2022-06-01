@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.css" />
-    <link rel="stylesheet" href="/views/style.css" />
+    <link rel="stylesheet" href="/views/show_chapter/style.css" />
     <title>Document</title>
   </head>
   <body class="bg-dark text-light">
@@ -16,7 +16,7 @@
 
 
     <%panels.forEach(panel => {%>
-        <div class="small-box mx-auto show_chapter_img">
+        <div class="show_chapter_img">
             <img src="<%=panel%>" style="width: 100%;border-bottom: 10px solid black;"></img>
         </div>
     <%});%>
@@ -24,7 +24,7 @@
 
     <div class="container img-container">
       <form class="w-100 show_chapter_form" action="/show_chapter" method="POST">
-        <input type="hidden" name="manga_title" value="<%= manga_title %>" />
+        <input type="hidden" name="manga_id" value="<%= manga.id %>" />
         <input type="hidden" name="manga_chapter" value="<%= next_chapter %>" />
         <input
           class="small-box mx-auto btn btn-outline-light"

@@ -1,0 +1,31 @@
+@keyframes zoom {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 50%;
+    }
+}
+
+table {
+    width: 100%;
+}
+
+table .form {
+    width: 50%;
+    margin-top: 20%;
+    animation-name: example;
+    animation-duration: 3s;
+}
+
+table .info {
+    width: 50%;
+    height: 50%;
+    animation-name: zoom;
+    animation-duration: 2s;
+}
+
+table .info p {
+    width: 50%;
+}

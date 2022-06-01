@@ -1,0 +1,16 @@
+.show_chapter_img {
+    animation-name: show_chapter_img_up;
+    animation-duration: 2s;
+    margin-left: 25%;
+    width: 50%;
+}
+
+@keyframes show_chapter_img_up {
+    0% {
+        margin-top: 100%;
+    }
+
+    100% {
+        margin-top: 0%;
+    }
+}
