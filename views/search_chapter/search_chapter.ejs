@@ -19,7 +19,7 @@
           >
             <input type="hidden" name="manga_id" value="<%=manga.id%>" />
             <select name="manga_chapter">
-              <% for (let i = 0; i < chapters; i++) {%>
+              <% for (let i = 1; i <= chapters; i++) {%>
               <option value="<%=i%>"><%=i%></option>
               <%}%>
             </select>

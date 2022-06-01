@@ -38,7 +38,7 @@ function showManga(manga_title, offset, req, res) {
     for (var i = 0; i < list.length; i++) {
       download(
         (await list[i].mainCover.resolve()).image256,
-        "./img/img" + i + ".png",
+        "./img/img" + (i + 1) + ".png",
         function () {
           console.log("done" + i);
         }
@@ -46,7 +46,7 @@ function showManga(manga_title, offset, req, res) {
       if (i == list.length - 1) {
         download(
           (await list[i].mainCover.resolve()).image256,
-          "./img/img" + i + ".png",
+          "./img/img" + (i + 1) + ".png",
           function () {
             res.render("show_manga/show_manga.ejs", {
               manga_title: manga_title,

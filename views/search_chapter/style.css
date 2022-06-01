@@ -15,6 +15,7 @@ table {
 table .form {
     width: 50%;
     margin-top: 20%;
+    margin-left: 10%;
     animation-name: example;
     animation-duration: 3s;
 }
