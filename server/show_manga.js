@@ -1,6 +1,7 @@
 const fs = require("fs"),
   request = require("request"),
-  MFA = require("mangadex-full-api");
+  MFA = require("mangadex-full-api"),
+  imageToBase64 = require("image-to-base64");
 
 function showManga(manga_title, offset, req, res) {
   MFA.login("aymanthebruhman", "avalid22").then(async () => {
@@ -34,15 +35,26 @@ function showManga(manga_title, offset, req, res) {
         //   }
         // });
 
-        for (var i = 0; i < list.length; i++) {
-          list[i].mainCover = (await list[i].mainCover.resolve()).image256;
-        }
+        var bin = [],
+          i = 0;
+
+        list.forEach(async (element) => {
+          await element.mainCover.resolve().then((url) => {
+            imageToBase64(url.image256).then((base64) => {
+              bin[i++] = base64;
+              console.log(bin[i]);
+            });
+          });
+        });
+
         res.render("show_manga/show_manga.ejs", {
+          bin: bin,
           manga_title: manga_title,
           list: list,
           offset: offset,
           error: "",
         });
+        exports.list = list;
       })
       .catch((err) => {
         console.log(err);

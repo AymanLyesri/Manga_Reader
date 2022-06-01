@@ -49,7 +49,7 @@
 
     <h1><%= error %></h1>
 
-    <%var x=1; list.forEach(element=> {%>
+    <%var x=0; list.forEach(element=> {%>
 
     <form class="show_manga_form" action="/search_chapter" method="POST">
       <table>
@@ -62,7 +62,7 @@
               <input
                 class="img-thumbnail"
                 type="image"
-                src="<%=element.mainCover%>"
+                src="data:image/png;base64,<%=bin[x]%>"
               />
             </td>
             <td style="width: 50%">
@@ -74,7 +74,7 @@
       </table>
     </form>
 
-    <%})%>
+    <%x++;})%>
     <table class="previous_next">
       <tr>
         <%if (offset!=0) {%>
@@ -101,6 +101,6 @@
       </tr>
     </table>
 
-    <script src="/views/view/show_manga/script.js"></script>
+    <script src="/views/show_manga/script.js"></script>
   </body>
 </html>
