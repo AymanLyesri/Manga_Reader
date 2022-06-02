@@ -14,27 +14,33 @@
       AymanLyesri and MangaDex
     </p>
 
-  <form class="search_chapter_form" action="/show_chapter" method="POST">
-    <input type="hidden" name="manga_id" value="<%=manga.id%>" />
-    <select name="manga_chapter" onchange="onSelectChange();">
+    <form class="search_chapter_form" action="/show_chapter" method="POST">
+      <input type="hidden" name="manga_id" value="<%=manga.id%>" />
+      <input type="hidden" name="language" value="<%=language%>" />
+      <select name="manga_chapter" onchange="onSelectChange();">
         <% for (let i = 1; i <= chapters; i++) {%>
-          <option value="<%=i%>"><%=i%></option>
+        <option value="<%=i%>"><%=i%></option>
         <%}%>
-    </select>
-    
-  </form>
+      </select>
+    </form>
 
-    <%panels.forEach(panel => {%>
-        <div class="show_chapter_img">
-            <img class="zoom" src="<%=panel%>" data-lazy-load-src="<%=panel%>" ></img>
-        </div>
-    <%});%>
-
+    <% if(panels.length > 0) { %> <%panels.forEach(panel => {%>
+    <div class="show_chapter_img">
+      <img class="zoom" src="<%=panel%>" data-lazy-load-src="<%=panel%>" />
+    </div>
+    <%});}else{%>
+    <h1>This chapter is not yet released</h1>
+    <%}%>
 
     <div class="container w-100">
-      <form class="w-100 next_chapter_form" action="/show_chapter" method="POST">
-        <input type="hidden" name="manga_id" value="<%= manga.id %>" />
-        <input type="hidden" name="manga_chapter" value="<%= next_chapter %>" />
+      <form
+        class="w-100 next_chapter_form"
+        action="/show_chapter"
+        method="POST"
+      >
+        <input type="hidden" name="manga_id" value="<%=manga.id%>" />
+        <input type="hidden" name="manga_chapter" value="<%=next_chapter%>" />
+        <input type="hidden" name="language" value="<%=language%>" />
         <input
           class="btn btn-outline-light"
           type="submit"

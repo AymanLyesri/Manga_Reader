@@ -68,6 +68,24 @@
             <td style="width: 50%">
               <input class="show_manga_submit" type="submit" value="watch" />
               <p class="text-center">[<%=element.year%>]</p>
+
+              <%element.availableTranslatedLanguages.forEach(lang =>{%>
+
+              <input
+                type="radio"
+                name="language"
+                value="<%=lang%>"
+                id="<%=lang%>"
+              />
+              <label for="<%=lang%>"
+                ><img
+                  class="lang_img"
+                  src="/icons/<%=lang%>.png"
+                  alt="<%=lang%>"
+              /></label>
+              <br />
+
+              <%})%>
             </td>
           </tr>
         </tbody>

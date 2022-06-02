@@ -2,7 +2,6 @@
     animation-name: show_chapter_img_up;
     animation-duration: 2s;
     display: block;
-    margin: 5px auto 0;
     max-width: 100%;
     height: auto;
 }
@@ -18,11 +17,10 @@
 }
 
 .zoom {
-    transition: transform .2s;
+    transition: transform .1s;
     margin: 0 auto;
     display: block;
-    margin: 5px auto 0;
-    max-width: 400px;
+    max-width: 500px;
     height: auto;
     border-bottom: 10px solid black;
 }
@@ -32,7 +30,13 @@
 }
 
 .next_chapter_form .btn {
+    margin-top: 10%;
     margin-left: 25%;
     width: 50%;
+}
+
+.search_chapter_form select {
+    margin-top: 0px;
+    position: fixed;
 }
 

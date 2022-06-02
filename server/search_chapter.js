@@ -1,6 +1,6 @@
 const MFA = require("mangadex-full-api");
 
-function searchChapter(manga_id, cover_bin, req, res) {
+function searchChapter(manga_id, language, cover_bin, req, res) {
   MFA.login("aymanthebruhman", "avalid22")
     .then(async () => {
       console.log(manga_id);
@@ -11,7 +11,7 @@ function searchChapter(manga_id, cover_bin, req, res) {
           .getFeed(
             {
               limit: 1000,
-              translatedLanguage: ["en"],
+              translatedLanguage: [language],
             },
             false
           )
@@ -20,6 +20,7 @@ function searchChapter(manga_id, cover_bin, req, res) {
             res.render("search_chapter/search_chapter.ejs", {
               chapters: chapters.length,
               manga: manga,
+              language: language,
               cover: cover_bin,
             });
           });

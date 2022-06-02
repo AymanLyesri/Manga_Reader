@@ -22,23 +22,34 @@ app.get("/search_manga", (req, res) => {
 
 //post the 'show_manga'///////////////////////////////////////////////////////////////////////
 app.post("/show_manga", (req, res) => {
-  var manga_title = req.body.manga_title,
-    offset = parseInt(req.body.offset);
-  show_manga.showManga(manga_title, offset, req, res);
+  show_manga.showManga(
+    req.body.manga_title,
+    parseInt(req.body.offset),
+    req,
+    res
+  );
 });
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 app.post("/search_chapter", (req, res) => {
-  var manga_id = req.body.manga_id,
-    cover_bin = req.body.cover_bin;
-  search_chapter.searchChapter(manga_id, cover_bin, req, res);
+  search_chapter.searchChapter(
+    req.body.manga_id,
+    req.body.language,
+    req.body.cover_bin,
+    req,
+    res
+  );
 });
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 app.post("/show_chapter", (req, res) => {
-  var manga_id = req.body.manga_id,
-    manga_chapter = parseInt(req.body.manga_chapter);
-  show_chapter.showChapter(manga_id, manga_chapter, req, res);
+  show_chapter.showChapter(
+    req.body.manga_id,
+    req.body.language,
+    parseInt(req.body.manga_chapter),
+    req,
+    res
+  );
 });
 
 //listen to port////////////////////////////////////////////////////////////////////////////////////////////

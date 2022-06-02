@@ -6,7 +6,7 @@
     }
 
     100% {
-        width: 50%;
+        width: 70%;
         Height: 20%;
         margin-left: 10%;
     }
@@ -42,6 +42,12 @@ table .form {
 table .info {
     width: 70%;
     padding: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
     animation-name: zoom;
     animation-duration: 1s;
+}
+
+table .info img{
+    width: 20%;
 }

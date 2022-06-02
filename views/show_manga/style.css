@@ -60,6 +60,10 @@
     width: 100%;
 }
 
+.lang_img {
+    width: 20%;
+}
+
 .search_manga_form_up {
     animation-name: search_manga_form_up;
     animation-duration: 2s;
@@ -72,6 +76,25 @@
 
     100% {
         margin-top: 5%;
+    }
+}
+
+.search_manga_form_quit {
+    margin-top: 25%;
+    margin-bottom: 100%;
+    animation-name: search_manga_form_quit;
+    animation-duration: 2s;
+}
+
+@keyframes search_manga_form_quit {
+    0% {
+        margin-top: 5%;
+        margin-bottom: 0%;
+    }
+
+    100% {
+        margin-top: 25%;
+        margin-bottom: 100%;
     }
 }
 
