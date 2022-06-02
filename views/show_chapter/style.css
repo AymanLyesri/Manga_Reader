@@ -1,8 +1,10 @@
 .show_chapter_img {
     animation-name: show_chapter_img_up;
     animation-duration: 2s;
-    margin-left: 25%;
-    width: 50%;
+    display: block;
+    margin: 5px auto 0;
+    max-width: 100%;
+    height: auto;
 }
 
 @keyframes show_chapter_img_up {
@@ -14,3 +16,22 @@
         margin-top: 0%;
     }
 }
+
+.zoom {
+    background-color: green;
+    transition: transform .2s;
+    /* Animation */
+    margin: 0 auto;
+
+    display: block;
+    margin: 5px auto 0;
+    max-width: 100%;
+    height: auto;
+    border-bottom: 10px solid black;
+}
+
+.zoom:hover {
+    transform: scale(1.5);
+    /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+

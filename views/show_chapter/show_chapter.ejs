@@ -14,10 +14,12 @@
       AymanLyesri and MangaDex
     </p>
 
+  <button id="zoomOut">-</button>
+  <button id="zoomIn">+</button>
 
     <%panels.forEach(panel => {%>
         <div class="show_chapter_img">
-            <img src="<%=panel%>" data-lazy-load-src="<%=panel%>" style="width: 100%;border-bottom: 10px solid black;"></img>
+            <img class="zoom" src="<%=panel%>" data-lazy-load-src="<%=panel%>" ></img>
         </div>
     <%});%>
 
@@ -33,5 +35,6 @@
         />
       </form>
     </div>
+    <script src="/views/show_chapter/script.js"></script>
   </body>
 </html>
