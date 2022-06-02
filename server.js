@@ -30,8 +30,8 @@ app.post("/show_manga", (req, res) => {
 ////////////////////////////////////////////////////////////////////////////////////////////
 app.post("/search_chapter", (req, res) => {
   var manga_id = req.body.manga_id,
-    cover_id = req.body.cover_id;
-  search_chapter.searchChapter(manga_id, cover_id, req, res);
+    cover_bin = req.body.cover_bin;
+  search_chapter.searchChapter(manga_id, cover_bin, req, res);
 });
 
 ////////////////////////////////////////////////////////////////////////////////////////////
