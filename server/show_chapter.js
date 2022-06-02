@@ -21,6 +21,7 @@ function showChapter(manga_id, manga_chapter, req, res) {
             await chapters[manga_chapter].getReadablePages().then((pages) => {
               res.render("show_chapter/show_chapter.ejs", {
                 panels: pages,
+                chapters: chapters.length,
                 manga_chapter: manga_chapter,
                 next_chapter: manga_chapter + 1,
                 manga: manga,

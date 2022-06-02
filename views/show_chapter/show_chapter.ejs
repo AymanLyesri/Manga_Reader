@@ -14,8 +14,15 @@
       AymanLyesri and MangaDex
     </p>
 
-  <button id="zoomOut">-</button>
-  <button id="zoomIn">+</button>
+  <form class="search_chapter_form" action="/show_chapter" method="POST">
+    <input type="hidden" name="manga_id" value="<%=manga.id%>" />
+    <select name="manga_chapter" onchange="onSelectChange();">
+        <% for (let i = 1; i <= chapters; i++) {%>
+          <option value="<%=i%>"><%=i%></option>
+        <%}%>
+    </select>
+    
+  </form>
 
     <%panels.forEach(panel => {%>
         <div class="show_chapter_img">
@@ -24,12 +31,12 @@
     <%});%>
 
 
-    <div class="container img-container">
-      <form class="w-100 show_chapter_form" action="/show_chapter" method="POST">
+    <div class="container w-100">
+      <form class="w-100 next_chapter_form" action="/show_chapter" method="POST">
         <input type="hidden" name="manga_id" value="<%= manga.id %>" />
         <input type="hidden" name="manga_chapter" value="<%= next_chapter %>" />
         <input
-          class="small-box mx-auto btn btn-outline-light"
+          class="btn btn-outline-light"
           type="submit"
           value="next chapter"
         />

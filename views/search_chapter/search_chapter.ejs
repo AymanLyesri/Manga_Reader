@@ -7,16 +7,12 @@
     <link rel="stylesheet" href="/views/search_chapter/style.css" />
     <title>welcome</title>
   </head>
-  <body class="bg-dark text-light">
+  <body class="text-light">
     <p class="text-center">powered by AymanLyesri and MangaDex</p>
     <table>
       <tr>
-        <td class="form">
-          <form
-            class="search_chapter_form"
-            action="/show_chapter"
-            method="POST"
-          >
+        <form class="form" action="/show_chapter" method="POST">
+          <td>
             <input type="hidden" name="manga_id" value="<%=manga.id%>" />
             <select name="manga_chapter">
               <% for (let i = 1; i <= chapters; i++) {%>
@@ -24,16 +20,17 @@
               <%}%>
             </select>
             <input type="image" src="data:image/png;base64,<%=cover%>" />
-          </form>
-        </td>
+          </td>
+        </form>
+
         <td class="info">
           <h1>title</h1>
           <p><%=manga.title%></p>
           <h1>chapters</h1>
           <p><%=chapters%></p>
           <h1>Description</h1>
-          <% if(manga.description!=""){%>
-          <p><%=manga.description%>...</p>
+          <%if(typeof manga.description==='string'){%>
+          <p class="description"><%=manga.description.substring(0,500)%>...</p>
           <%}%>
         </td>
       </tr>
