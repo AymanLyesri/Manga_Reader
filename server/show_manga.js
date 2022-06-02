@@ -18,37 +18,21 @@ function showManga(manga_title, offset, req, res) {
           });
         }
 
-        // var download = function (uri, filename, callback) {
-        //   request.head(uri, function () {
-        //     request(uri).pipe(
-        //       fs.createWriteStream(filename).on("close", callback)
-        //     );
-        //   });
-        // };
+        async function foo(things) {
+          const results = [];
+          for (const thing of things) {
+            // Good: all asynchronous operations are immediately started.
+            thing.mainCover = (await thing.mainCover.resolve()).image256;
+            results.push(imageToBase64(thing.mainCover));
+          }
+          // Now that all the asynchronous operations are running, here we wait until they all complete.
+          return await Promise.all(results);
+        }
 
-        // fs.readdir("./img/", (error, filesInDirectory) => {
-        //   if (error) throw error;
-
-        //   for (let file of filesInDirectory) {
-        //     console.log("File removed" + " : " + file);
-        //     fs.unlinkSync("./img/" + file);
-        //   }
-        // });
-
-        var bin = [],
-          i = 0;
-
-        list.forEach(async (element) => {
-          await element.mainCover.resolve().then((url) => {
-            imageToBase64(url.image256).then((base64) => {
-              bin[i++] = base64;
-              console.log(bin[i]);
-            });
-          });
-        });
+        var url256 = await foo(list);
 
         res.render("show_manga/show_manga.ejs", {
-          bin: bin,
+          url: url256,
           manga_title: manga_title,
           list: list,
           offset: offset,
@@ -59,28 +43,6 @@ function showManga(manga_title, offset, req, res) {
       .catch((err) => {
         console.log(err);
       });
-    // if (i == list.length - 1) {
-    //   download(
-    //     (await list[i].mainCover.resolve()).image256,
-    //     "./img/img" + (i + 1) + ".png",
-    //     function () {
-    //       res.render("show_manga/show_manga.ejs", {
-    //         manga_title: manga_title,
-    //         list: list,
-    //         offset: offset,
-    //         error: "",
-    //       });
-    //       console.log("img done");
-    //     }
-    //   );
-    // }
-    // download(
-    //   (await list[i].mainCover.resolve()).image256,
-    //   "./img/img" + (i + 1) + ".png",
-    //   function () {
-    //     console.log("img done");
-    //   }
-    // );
   });
 }
 
