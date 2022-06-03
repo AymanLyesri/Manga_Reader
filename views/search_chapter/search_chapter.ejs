@@ -3,7 +3,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" href="/views/search_chapter/style.css" />
     <title>welcome</title>
   </head>
@@ -14,7 +13,7 @@
         <form class="form" action="/show_chapter" method="POST">
           <td>
             <input type="hidden" name="manga_id" value="<%=manga.id%>" />
-            <input type="hidden" name="language" value="<%=language%>" /> 
+            <input type="hidden" name="language" value="<%=language%>" />
             <select name="manga_chapter">
               <% for (let i = 1; i <= chapters; i++) {%>
               <option value="<%=i%>"><%=i%></option>

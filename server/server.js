@@ -1,14 +1,20 @@
 const express = require("express"),
-  show_manga = require("./server/show_manga"),
-  search_chapter = require("./server/search_chapter"),
-  show_chapter = require("./server/show_chapter"),
+  show_manga = require("./show_manga"),
+  search_chapter = require("./search_chapter"),
+  show_chapter = require("./show_chapter"),
+  compression = require("compression"),
   port = process.env.PORT || 3000,
   app = express();
 
-//set view engine and default directory
+//set view engine and default and compression method///////////////////////////////////////////////////////////////////////////////
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }));
 app.use("/", express.static("./"));
+app.use(
+  compression({
+    level: 6,
+  })
+);
 
 //get the index page////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 app.get("/", (req, res) => {

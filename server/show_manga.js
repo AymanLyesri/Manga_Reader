@@ -1,6 +1,4 @@
-const fs = require("fs"),
-  request = require("request"),
-  MFA = require("mangadex-full-api"),
+const MFA = require("mangadex-full-api"),
   imageToBase64 = require("image-to-base64");
 
 function showManga(manga_title, offset, req, res) {
@@ -18,18 +16,19 @@ function showManga(manga_title, offset, req, res) {
           });
         }
 
-        async function foo(things) {
+        async function getCovers(things) {
           const results = [];
           for (const thing of things) {
             // Good: all asynchronous operations are immediately started.
-            thing.mainCover = (await thing.mainCover.resolve()).image256;
-            results.push(imageToBase64(thing.mainCover));
+            results.push(
+              imageToBase64((await thing.mainCover.resolve()).image256)
+            );
           }
           // Now that all the asynchronous operations are running, here we wait until they all complete.
           return await Promise.all(results);
         }
 
-        var url256 = await foo(list);
+        var url256 = await getCovers(list);
 
         res.render("show_manga/show_manga.ejs", {
           url: url256,

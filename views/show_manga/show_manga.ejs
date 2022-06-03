@@ -4,17 +4,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" href="/views/show_manga/style.css" />
     <title>Show mangas</title>
   </head>
-  <body class="bg-dark text-light">
-    <p class="text-center">powered by AymanLyesri and MangaDex</p>
+  <body>
+    <p class="credits">powered by AymanLyesri and MangaDex</p>
 
-    <div class="container">
-      <div class="small-box mx-auto">
+    <div>
+      <div>
         <form
-          class="search_manga_form search_manga_form_up"
+          class="search_manga search_manga_up"
           action="/show_manga"
           method="POST"
         >
@@ -34,11 +33,7 @@
                   />
                 </td>
                 <td>
-                  <input
-                    class="btn btn-outline-light"
-                    type="submit"
-                    value="search"
-                  />
+                  <input type="submit" value="search" />
                 </td>
               </tr>
             </tbody>
@@ -51,7 +46,7 @@
 
     <%var x=0; list.forEach(element=> {%>
 
-    <form class="show_manga_form" action="/search_chapter" method="POST">
+    <form class="show_manga" action="/search_chapter" method="POST">
       <table>
         <tbody>
           <tr>
@@ -101,12 +96,7 @@
           <form action="/show_manga" method="POST">
             <input type="hidden" name="manga_title" value="<%=manga_title%>" />
             <input type="hidden" name="offset" value="<%=offset-4%>" />
-            <input
-              class="btn btn-outline-light"
-              onclick="history.back()"
-              type="submit"
-              value="previous"
-            />
+            <input onclick="history.back()" type="submit" value="previous" />
           </form>
         </td>
         <%}%>
@@ -114,7 +104,7 @@
           <form action="/show_manga" method="POST">
             <input type="hidden" name="manga_title" value="<%=manga_title%>" />
             <input type="hidden" name="offset" value="<%=offset+4%>" />
-            <input class="btn btn-outline-light" type="submit" value="next" />
+            <input type="submit" value="next" />
           </form>
         </td>
       </tr>
