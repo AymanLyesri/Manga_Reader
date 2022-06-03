@@ -1,8 +1,14 @@
 
-#welcome{
-    animation-name: example;
-    animation-duration: 1s;
-    margin-top: 20%;
+.welcome{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.credits {
+    text-align: center;
+    color: #ff0000;
 }
 
 @keyframes example {
