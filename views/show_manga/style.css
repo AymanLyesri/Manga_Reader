@@ -12,6 +12,7 @@ body{
     margin-top: 5%;
     animation-name: show_manga_up;
     animation-duration: 2s;
+    color: white;
 }
 
 .show_manga table {

@@ -7,39 +7,23 @@
     <link rel="stylesheet" href="/views/search_manga/style.css" />
     <title>welcome</title>
   </head>
-  <body class="bg-dark text-light">
-    <p class="text-center">powered by AymanLyesri and MangaDex</p>
-
+  <body>
     <div class="container">
-      <div class="small-box mx-auto">
-        <form class="search_manga_form" action="/show_manga" method="POST">
-          <table>
-            <tbody>
-              <tr>
-                <label for="title">Manga title</label>
-              </tr>
-              <tr>
-                <td>
-                  <input type="hidden" name="offset" value="0" />
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Enter title"
-                    name="manga_title"
-                  />
-                </td>
-                <td>
-                  <input
-                    class="btn btn-outline-light"
-                    type="submit"
-                    value="search"
-                  />
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </form>
+      <p class="credits">powered by AymanLyesri and MangaDex</p>
+      <div class="search_manga">
+        <h1>MangaReader</h1>
+        <a href="search_manga">search manga</a>
       </div>
+      <form action="/show_manga" method="POST">
+        <input type="hidden" name="offset" value="0" />
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter title"
+          name="manga_title"
+        />
+        <input type="submit" value="search" />
+      </form>
     </div>
   </body>
   <script src="/views/search_manga/script.js"></script>
