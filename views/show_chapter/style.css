@@ -1,3 +1,15 @@
+body{
+    background-color: rgb(27, 27, 27);
+}
+
+.credits {
+    margin-top: 0;
+    font: clamp(0.5em, 1vw, 2em) sans-serif;
+    text-align: center;
+    color: #ff0000;
+
+}
+
 .show_chapter_img {
     animation-name: show_chapter_img_up;
     animation-duration: 2s;
@@ -17,7 +29,7 @@
 }
 
 .zoom {
-    transition: transform .1s;
+    transition: transform 0.1s;
     margin: 0 auto;
     display: block;
     max-width: 500px;
@@ -26,7 +38,7 @@
 }
 
 .zoom:hover {
-    transform: scale(1.2);
+    transform: scale(1.005);
 }
 
 .next_chapter_form .btn {

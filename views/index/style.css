@@ -32,7 +32,7 @@ body{
 
 .search_manga h1{
     font-size: clamp(1em, 4vw, 3vw);
-    height: 20%;
+    height: 10%;
     color: #ff0000;
     text-transform: uppercase;
     letter-spacing: 0.5em;

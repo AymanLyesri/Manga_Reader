@@ -1,4 +1,4 @@
-var btn = document.getElementsByClassName("btn");
+var btn = document.getElementsByClassName("search");
 var input = document.querySelector(".form-control");
 var form = document.querySelector(".search_manga");
 

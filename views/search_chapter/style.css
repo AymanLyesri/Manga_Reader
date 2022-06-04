@@ -1,5 +1,24 @@
 body{
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(49, 49, 49);
+}
+
+.credits {
+    margin-top: 0;
+    font: clamp(0.5em, 1vw, 2em) sans-serif;
+    text-align: center;
+    color: #ff0000;
+}
+
+select{
+    margin:25%;
+}
+
+input[type="image"]{
+    transition: 0.5s;
+}
+
+input[type="image"]:hover{
+    border: 10px solid #ff0000;
 }
 
 
@@ -41,12 +60,11 @@ table .form {
 }
 
 table .info {
-    width: 70%;
-    padding: 5%;
-    margin-left: 10%;
-    margin-right: 10%;
+    float: left;
+
     animation-name: zoom;
     animation-duration: 1s;
+    color: aliceblue;
 }
 
 table .info img{

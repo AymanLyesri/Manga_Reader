@@ -7,59 +7,12 @@ body{
     color: #ff0000;
 }
 
-.show_manga {
-    width: 100%;
-    margin-top: 5%;
-    animation-name: show_manga_up;
-    animation-duration: 2s;
-    color: white;
-}
-
-.show_manga table {
-    border: 5px solid rgb(255, 0, 0);
-    border-radius: 10px;
-    margin-left: 10%;
-    margin-right: 10%;
-    width: 80%;
-    height: 100%;
-    background-color: rgb(150, 50, 50);
-    perspective: 1px;
-    border-collapse: separate;
-}
-
-.show_manga input[type="image"]{
-    width:100%;
-}
-
-@keyframes show_manga_up {
-    0% {
-        margin-top: 100%;
-    }
-
-    100% {
-        margin-top: 5%;
-    }
-}
-
-.show_manga_submit {
-    width: 50%;
-    margin-top: 5%;
-}
-
-.show_manga_submit:hover {
-    background-color: #f10000;
-    color: rgb(155, 15, 15);
-}
-
-.show_manga_submit:active {
-    background-color: #141313;
-    color: rgb(24, 21, 21);
-}
-
 .search_manga {
     margin-top: 5%;
     margin-left: 25%;
     width: 50%;
+    color: white;
+    transition: 0.5s;
 }
 
 .search_manga .form-control {
@@ -74,29 +27,11 @@ body{
     width: 100%;
 }
 
-.lang_img {
-    width: 10%;
-}
-
-input[type="radio"] {
-    width: 100%;
-    background-color: #ff0000;
-}
-
 .search_manga_up {
     animation-name: search_manga_up;
     animation-duration: 2s;
 }
 
-@keyframes search_manga_up {
-    0% {
-        margin-top: 25%;
-    }
-
-    100% {
-        margin-top: 5%;
-    }
-}
 
 .search_manga_quit {
     margin-top: 25%;
@@ -104,6 +39,80 @@ input[type="radio"] {
     animation-name: search_manga_quit;
     animation-duration: 2s;
 }
+
+.show_manga {
+    width: 100%;
+    margin-top: 5%;
+    animation-name: show_manga_up;
+    animation-duration: 2s;
+    color: white;
+
+}
+
+
+.show_manga table {
+    border: 5px solid rgb(87, 13, 13);
+    border-radius: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+    height: 100%;
+    background-color: rgb(150, 50, 50);
+    perspective: 1px;
+    border-collapse: separate;
+    transition: 0.5s;
+}
+
+.show_manga table:hover {
+    background-color: black;
+}
+
+.show_manga input[type="image"]{
+    width:25vw;
+    border-radius: 10px;
+    border: 1px solid white;
+}
+
+
+
+.show_manga_submit {
+    width: 50%;
+    margin:25%;
+    transition: 00.5s;
+    border-radius: 10px;
+    background-color: rgb(0, 0, 0);
+    color: #ff0000;
+}
+
+.show_manga_submit:hover {
+    background-color: #000000;
+    color: rgb(251, 255, 0);
+}
+
+.show_manga_submit:active {
+    background-color: #000000;
+    color: rgb(251, 255, 0);
+}
+
+.lang_img {
+    width: 10%;
+}
+
+input[type="radio"] {
+
+    margin: 0;
+}
+
+label{
+    border-radius: 10px;
+    margin-left: 5%;
+    transition: 0.3s;
+}
+label:hover{
+    background-color: #ffffff;
+}
+
+
 
 @keyframes search_manga_quit {
     0% {
@@ -114,6 +123,24 @@ input[type="radio"] {
     100% {
         margin-top: 25%;
         margin-bottom: 100%;
+    }
+}
+@keyframes search_manga_up {
+    0% {
+        margin-top: 25%;
+    }
+
+    100% {
+        margin-top: 5%;
+    }
+}
+@keyframes show_manga_up {
+    0% {
+        margin-top: 100%;
+    }
+
+    100% {
+        margin-top: 5%;
     }
 }
 

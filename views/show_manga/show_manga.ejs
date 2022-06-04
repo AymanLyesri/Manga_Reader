@@ -33,7 +33,7 @@
                   />
                 </td>
                 <td>
-                  <input type="submit" value="search" />
+                  <input class="search" type="submit" value="search" />
                 </td>
               </tr>
             </tbody>
@@ -62,25 +62,20 @@
             </td>
             <td style="width: 50%">
               <input class="show_manga_submit" type="submit" value="watch" />
-              <p class="text-center">[<%=element.year%>]</p>
 
               <%element.availableTranslatedLanguages.forEach(lang =>{%>
-
-              <input
-                type="radio"
-                name="language"
-                value="<%=lang%>"
-                id="<%=lang%>"
-                required
-              />
-              <label for="<%=lang%>"
-                ><img
+              <label for="<%=lang%>">
+                <input
+                  type="radio"
+                  name="language"
+                  value="<%=lang%>"
+                  id="<%=lang%>"
+                  required />
+                <img
                   class="lang_img"
                   src="/icons/<%=lang%>.png"
                   alt="<%=lang%>"
               /></label>
-              <br />
-
               <%})%>
             </td>
           </tr>
