@@ -3,11 +3,14 @@ const MFA = require("mangadex-full-api"),
 
 function showManga(manga_title, offset, req, res) {
   MFA.login("aymanthebruhman", "avalid22").then(async () => {
-    await MFA.Manga.search({
-      title: manga_title,
-      limit: 4,
-      offset: offset,
-    })
+    await MFA.Manga.search(
+      {
+        title: manga_title,
+        limit: 6,
+        offset: offset,
+      },
+      false
+    )
       .then(async (list) => {
         console.log("list found");
         if (list.length == 0) {

@@ -14,7 +14,7 @@
     </p>
 
     <form class="search_chapter_form" action="/show_chapter" method="POST">
-      <input type="hidden" name="manga_id" value="<%=manga.id%>" />
+      <input type="hidden" name="manga_id" value="<%=manga_id%>" />
       <input type="hidden" name="language" value="<%=language%>" />
       <select name="manga_chapter" onchange="onSelectChange();">
         <% for (let i = 1; i <= chapters; i++) {%>
@@ -37,7 +37,7 @@
         action="/show_chapter"
         method="POST"
       >
-        <input type="hidden" name="manga_id" value="<%=manga.id%>" />
+        <input type="hidden" name="manga_id" value="<%=manga_id%>" />
         <input type="hidden" name="manga_chapter" value="<%=next_chapter%>" />
         <input type="hidden" name="language" value="<%=language%>" />
         <input

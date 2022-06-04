@@ -7,104 +7,67 @@
     <link rel="stylesheet" href="/views/show_manga/style.css" />
     <title>Show mangas</title>
   </head>
+  <style>
+    body {
+      grid-template-rows: 1fr <%list.forEach(element=> {%>1fr <%}) %> 1fr;
+    }
+  </style>
+
   <body>
     <p class="credits">powered by AymanLyesri and MangaDex</p>
-
-    <div>
-      <div>
-        <form
-          class="search_manga search_manga_up"
-          action="/show_manga"
-          method="POST"
-        >
-          <table>
-            <tbody>
-              <tr>
-                <label for="title">Manga title</label>
-              </tr>
-              <tr>
-                <td>
-                  <input type="hidden" name="offset" value="0" />
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Enter title"
-                    name="manga_title"
-                  />
-                </td>
-                <td>
-                  <input class="search" type="submit" value="search" />
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </form>
-      </div>
-    </div>
-
     <h1><%= error %></h1>
-
-    <%var x=0; list.forEach(element=> {%>
-
-    <form class="show_manga" action="/search_chapter" method="POST">
-      <table>
-        <tbody>
-          <tr>
-            <td style="width: 50%">
-              <h1><%=element.title%></h1>
-              <input type="hidden" name="cover_bin" value="<%=url[x]%>" />
-              <input type="hidden" name="manga_id" value="<%=element.id%>" />
-              <input
-                class="img-thumbnail"
-                type="image"
-                src="data:image/png;base64,<%=url[x]%>"
-              />
-            </td>
-            <td style="width: 50%">
-              <input class="show_manga_submit" type="submit" value="watch" />
-
-              <%element.availableTranslatedLanguages.forEach(lang =>{%>
-              <label for="<%=lang%>">
-                <input
-                  type="radio"
-                  name="language"
-                  value="<%=lang%>"
-                  id="<%=lang%>"
-                  required />
-                <img
-                  class="lang_img"
-                  src="/icons/<%=lang%>.png"
-                  alt="<%=lang%>"
-              /></label>
-              <%})%>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <form class="search_manga" action="/show_manga" method="POST">
+      <label for="title">Manga title</label>
+      <input type="hidden" name="offset" value="0" />
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter title"
+        name="manga_title"
+      />
+      <input class="search" type="submit" value="search" />
     </form>
 
-    <%x++;})%>
-    <table class="previous_next">
-      <tr>
-        <%if (offset!=0) {%>
-        <td class="show_manga_previous">
-          <form action="/show_manga" method="POST">
-            <input type="hidden" name="manga_title" value="<%=manga_title%>" />
-            <input type="hidden" name="offset" value="<%=offset-4%>" />
-            <input onclick="history.back()" type="submit" value="previous" />
-          </form>
-        </td>
-        <%}%>
-        <td class="show_manga_next">
-          <form action="/show_manga" method="POST">
-            <input type="hidden" name="manga_title" value="<%=manga_title%>" />
-            <input type="hidden" name="offset" value="<%=offset+4%>" />
-            <input type="submit" value="next" />
-          </form>
-        </td>
-      </tr>
-    </table>
+    <%var x=1; list.forEach(element=> {%>
 
-    <script src="/views/show_manga/script.js"></script>
+    <form class="show_manga" action="/search_chapter" method="POST">
+      <h1><%=element.title%></h1>
+      <input type="hidden" name="cover_bin" value="<%=url[x-1]%>" />
+      <input type="hidden" name="manga_id" value="<%=element.id%>" />
+      <input
+        class="card"
+        type="image"
+        src="data:image/png;base64,<%=url[x-1]%>"
+      />
+      <%element.availableTranslatedLanguages.forEach(lang =>{%>
+      <label for="<%=lang+x%>">
+        <input
+          type="radio"
+          name="language"
+          value="<%=lang%>"
+          id="<%=lang+x%>"
+          required />
+        <img src="/icons/<%=lang%>.png" alt="<%=lang%>"
+      /></label>
+
+      <%})%>
+    </form>
+
+    <%x++;})%> <%if (offset!=0) {%>
+
+    <form class="previous" action="/show_manga" method="POST">
+      <input type="hidden" name="manga_title" value="<%=manga_title%>" />
+      <input type="hidden" name="offset" value="<%=offset-6%>" />
+      <input onclick="history.back()" type="submit" value="previous" />
+    </form>
+
+    <%}%>
+
+    <form class="next" action="/show_manga" method="POST">
+      <input type="hidden" name="manga_title" value="<%=manga_title%>" />
+      <input type="hidden" name="offset" value="<%=offset+6%>" />
+      <input type="submit" value="next" />
+    </form>
   </body>
+  <script src="/views/show_manga/script.js"></script>
 </html>

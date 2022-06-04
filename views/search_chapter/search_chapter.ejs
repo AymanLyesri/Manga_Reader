@@ -6,21 +6,23 @@
     <link rel="stylesheet" href="/views/search_chapter/style.css" />
     <title>welcome</title>
   </head>
-  <body)">
-    <div class="overlay"  style="background-image: url('data:image/png;base64,<%=cover%>')" >
-    <img src="data:image/png;base64,<%=cover%>"  alt="">  
+  <body>
+    <div
+      class="cover"
+      style="background-image: url('data:image/png;base64,<%=cover%>')"
+    >
+      <img src="data:image/png;base64,<%=cover%>" alt="" />
     </div>
-      <p class="credits">powered by AymanLyesri and MangaDex</p>
-      <form action="/show_chapter" method="POST">
-        <input type="hidden" name="manga_id" value="<%=manga.id%>" />
-        <input type="hidden" name="language" value="<%=language%>" />
-        <select name="manga_chapter">
-          <% for (let i = 1; i <= chapters; i++) {%>
-          <option value="<%=i%>"><%=i%></option>
-          <%}%>
-        </select>
-        <input type="submit" value="watch" />
-      </form>
-
+    <p class="credits">powered by AymanLyesri and MangaDex</p>
+    <form action="/show_chapter" method="POST">
+      <input type="hidden" name="manga_id" value="<%=manga_id%>" />
+      <input type="hidden" name="language" value="<%=language%>" />
+      <select name="manga_chapter">
+        <% for (let i = 1; i <= chapters; i++) {%>
+        <option value="<%=i%>"><%=i%></option>
+        <%}%>
+      </select>
+      <input type="submit" value="watch" />
+    </form>
   </body>
 </html>

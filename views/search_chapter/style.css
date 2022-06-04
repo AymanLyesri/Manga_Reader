@@ -1,25 +1,38 @@
 body{
     margin: 0;
-
-    background-color: rgb(24, 24, 24);
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    background-color: rgb(16, 15, 15);
 }
 
-*{
-    box-sizing: border-box;
+@media (max-width: 600px) {
+    body{
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+    .cover{
+        grid-column: 1/2;
+        grid-row: 1/2;
+    }
 }
 
-.overlay{
-    float: left;
+.cover{
+    image-rendering: pixelated;
     background-size: contain;
     background-repeat: no-repeat;
-    width: 50vw;
-    height: 100vh;
+    width: 100%;
+    grid-column: 1/2;
+    grid-row: 1/3;
 }
 
 img {
-    width: 25vw;
-    margin-top: 20%;
-    margin-left: 20%;
+    image-rendering: initial;
+    width: 50%;
+    margin: 25%;
+    border-radius: 10%;
+    border: 5px solid rgb(0, 0, 0);
 }
 
 .credits {
@@ -30,18 +43,9 @@ img {
 }
 
 form {
-    float: right;
     width: 45vw;
     animation-name: example;
     animation-duration: 3s;
 }
 
-@media (max-width: 600px) {
-    form{
-        float: left;
-        width: 100vw;
-    }
-    .overlay{
-        width: 100vw;
-    }
-}
+
