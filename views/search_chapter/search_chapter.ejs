@@ -6,36 +6,21 @@
     <link rel="stylesheet" href="/views/search_chapter/style.css" />
     <title>welcome</title>
   </head>
-  <body>
-    <p class="credits">powered by AymanLyesri and MangaDex</p>
-    <table>
-      <tr>
-        <form class="form" action="/show_chapter" method="POST">
-          <td>
-            <input type="hidden" name="manga_id" value="<%=manga.id%>" />
-            <input type="hidden" name="language" value="<%=language%>" />
-            <select name="manga_chapter">
-              <% for (let i = 1; i <= chapters; i++) {%>
-              <option value="<%=i%>"><%=i%></option>
-              <%}%>
-            </select>
-            <input type="image" src="data:image/png;base64,<%=cover%>" />
-          </td>
-        </form>
-
-        <td class="info">
-          <h6>Title</h6>
-          <p><%=manga.title%></p>
-          <h6>Chapters</h6>
-          <p><%=chapters%></p>
-          <h6>Language selected</h6>
-          <img src="/icons/<%=language%>.png" alt="<%=language%>" />
-          <h6>Description</h6>
-          <%if(typeof manga.description==='string'){%>
-          <p class="description"><%=manga.description.substring(0,500)%>...</p>
+  <body)">
+    <div class="overlay"  style="background-image: url('data:image/png;base64,<%=cover%>')" >
+    <img src="data:image/png;base64,<%=cover%>"  alt="">  
+    </div>
+      <p class="credits">powered by AymanLyesri and MangaDex</p>
+      <form action="/show_chapter" method="POST">
+        <input type="hidden" name="manga_id" value="<%=manga.id%>" />
+        <input type="hidden" name="language" value="<%=language%>" />
+        <select name="manga_chapter">
+          <% for (let i = 1; i <= chapters; i++) {%>
+          <option value="<%=i%>"><%=i%></option>
           <%}%>
-        </td>
-      </tr>
-    </table>
+        </select>
+        <input type="submit" value="watch" />
+      </form>
+
   </body>
 </html>

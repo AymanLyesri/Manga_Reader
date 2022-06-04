@@ -1,5 +1,25 @@
 body{
-    background-color: rgb(49, 49, 49);
+    margin: 0;
+
+    background-color: rgb(24, 24, 24);
+}
+
+*{
+    box-sizing: border-box;
+}
+
+.overlay{
+    float: left;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 50vw;
+    height: 100vh;
+}
+
+img {
+    width: 25vw;
+    margin-top: 20%;
+    margin-left: 20%;
 }
 
 .credits {
@@ -9,64 +29,19 @@ body{
     color: #ff0000;
 }
 
-select{
-    margin:25%;
-}
-
-input[type="image"]{
-    transition: 0.5s;
-}
-
-input[type="image"]:hover{
-    border: 10px solid #ff0000;
-}
-
-
-@keyframes zoom {
-    0% {
-        width: 0%;
-        Height: 0%;
-        margin-left: 70%;
-    }
-
-    100% {
-        width: 70%;
-        Height: 20%;
-        margin-left: 10%;
-    }
-}
-
-@keyframes example {
-    0% {
-        margin-top: 100%;
-    }
-
-    100% {
-        margin-top: 20%;
-    }
-}
-
-table {
-    width: 100%;
-    height: 50%;
-}
-
-table .form {
-    width: 50%;
-    margin-top: 20%;
-    margin-left: 10%;
+form {
+    float: right;
+    width: 45vw;
     animation-name: example;
     animation-duration: 3s;
 }
 
-table .info {
-    float: left;
-
-    animation-name: zoom;
-    animation-duration: 1s;
-    color: aliceblue;
-}
-
-table .info img{
-    width: 20%;
+@media (max-width: 600px) {
+    form{
+        float: left;
+        width: 100vw;
+    }
+    .overlay{
+        width: 100vw;
+    }
 }
