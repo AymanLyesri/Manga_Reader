@@ -40,7 +40,6 @@ function showManga(manga_title, offset, req, res) {
           offset: offset,
           error: "",
         });
-        exports.list = list;
       })
       .catch((err) => {
         console.log(err);

@@ -1,96 +1,102 @@
 body {
     background-color: rgb(13, 13, 13);
     margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
 }
-
 
 .credits {
     margin-top: 0;
-    font: clamp(0.5em,1vw,2em) sans-serif;
+    font: clamp(0.5em, 1vw, 2em) sans-serif;
     text-align: center;
     color: #ff0000;
-
+    grid-column: 2/3;
+    grid-row: 1/2;
 }
 
-.container {
-
-    width: 100vw;
-    height: 100vh;
-
+.wrapper {
+    margin-top: 50%;
+    width: 28ch;
+    place-items: center;
+    grid-column: 2/3;
+    grid-row: 1/2;
+    color: white;
 }
 
-
-.search_manga h1{
-    font-size: clamp(1em, 4vw, 3vw);
-    height: 10%;
-    color: #ff0000;
-    text-transform: uppercase;
-    letter-spacing: 0.5em;
-    transition: 0.5s;
+.typing-demo {
+    width: 28ch;
+    animation: typing 2s steps(25), blink .5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+    font-family: monospace;
+    font-size: 2em;
 }
 
-.search_manga a {
-    position: absolute;
-        display: block;
-        font-size: 1em;
-        text-decoration: none;
-        padding: 5%;
-        margin: auto;
-        width: 20vw;
-        color: white;
-        border: 1px white solid;
-        border-radius: 5px;
-        transition: 0.5s;
-        animation: search_manga_quit 1s;
+@keyframes typing {
+    from {
+        width: 0
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent
+    }
 }
 
 form {
-    margin-top: 200px;
-    margin: 25vw auto;
+    margin: 25% 10vh;
     width: 50%;
+    grid-column: 2/3;
+    grid-row: 2/3;
 }
 
 form .form-control {
     display: block;
     font-size: 1em;
     text-decoration: none;
-    padding: 5%;
-    margin: 20% auto;
-    width: clamp(150px,20vw,40vw);
+    margin: 20% 0;
+    width: clamp(200px, 20vw, 100vw);
     color: rgb(255, 0, 0);
     border: 1px rgb(255, 0, 0) solid;
     border-radius: 5px;
     transition: 0.5s;
 }
 
-form input[type="submit"]{
+form input[type="submit"] {
     display: block;
     font-size: 1em;
     text-decoration: none;
-    margin: 20% auto;
-
+    margin: 20% 0;
     background-color: black;
-    width: clamp(150px,20vw,40vw);
+    width: clamp(150px, 20vw, 40vw);
     color: rgb(255, 0, 0);
     border: 1px rgb(255, 0, 0) solid;
     border-radius: 5px;
     transition: 0.5s;
 }
-form input[type="submit"]:hover{
+
+form input[type="submit"]:hover {
     background-color: rgb(255, 0, 0);
     color: black;
 }
 
-
-
-@keyframes search_manga_quit {
-    0% {
-        margin-right: 0vw;
+@media (max-width:600px) {
+    body {
+        grid-template-columns: 1fr;
     }
-
-    100% {
-        margin-right: 100vw;
+    form {
+        margin: 0;
+        width: 100vw;
+    }
+    form .form-control {
+        width: 100vw;
+        padding: 5vw;
+    }
+    form input[type="submit"] {
+        width: 100vw;
+        padding: 5vw;
     }
 }
-
-

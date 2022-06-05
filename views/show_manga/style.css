@@ -1,35 +1,53 @@
-body{
+body {
     padding: 0;
     margin: 0;
     display: grid;
     height: 100vh;
     width: 100vw;
     text-align: center;
-    grid-template-columns: 1fr 1fr 1fr;
     background: rgb(10, 10, 10);
 }
 
+@media (min-width: 600px) {
+    body {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .credits,
+    h1,
+    .search_manga {
+        grid-column: 1/4;
+    }
+}
+
 @media (max-width: 600px) {
-    body{
+    body {
         grid-template-columns: 1fr;
     }
-    .credits,h1,.search_manga,.next{
+    .credits,
+    h1,
+    .search_manga {
         grid-column: 1/2;
     }
 }
 
-.credits,h1{
+.credits,
+h1 {
     margin-top: 0;
     font: 2vh sans-serif;
     color: #ff0000;
- 
 }
 
-.search_manga{
+.search_manga {
     margin-top: 10%;
+    color: white;
 }
 
-.show_manga{
+.search_manga input[type="submit"] {
+    background: #222222;
+    color: aliceblue;
+}
+
+.show_manga {
     width: 60%;
     margin: 10%;
     padding: 10%;
@@ -37,24 +55,8 @@ body{
     border: 1px white solid;
     border-radius: 10px;
 }
-.show_manga input[type="image"]{
-    width: 100%;
-}
 
-label img{
-    width: 10%;
-}
-
-.next{
-    width: 10%;
-
-}
-.previous{
-    width: 10%;
-
-}
-
-label {
+.show_manga label {
     width: 20px;
     height: 20px;
     cursor: pointer;
@@ -63,6 +65,18 @@ label {
     box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px white;
 }
 
+.show_manga input[type="image"] {
+    width: 100%;
+}
 
+label img {
+    width: 10%;
+}
 
+.next {
+    width: 10%;
+}
 
+.previous {
+    width: 10%;
+}
