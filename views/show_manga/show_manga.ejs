@@ -9,7 +9,7 @@
     <title>Show mangas</title>
 </head>
 
-<body style="grid-template-rows: 1fr <%list.forEach(element=> {%>1fr <%})%>1fr;">
+<body style="grid-template-rows: 1fr 1fr<%list.forEach(element=> {%>1fr <%})%>">
     <p class="credits">powered by AymanLyesri and MangaDex</p>
     <h1>
         <%= error %>
@@ -47,19 +47,22 @@
         <%x++;})%>
             <%if (offset!=0) {%>
 
-                <form class="previous" action="/show_manga" method="POST">
-                    <input type="hidden" name="manga_title" value="<%=manga_title%>" />
-                    <input type="hidden" name="offset" value="<%=offset-6%>" />
-                    <input onclick="history.back()" type="submit" value="previous" />
-                </form>
+                <div class="pagination">
 
-                <%}%>
-
-                    <form class="next" action="/show_manga" method="POST">
+                    <form class="previous" action="/show_manga" method="POST">
                         <input type="hidden" name="manga_title" value="<%=manga_title%>" />
-                        <input type="hidden" name="offset" value="<%=offset+6%>" />
-                        <input type="submit" value="next" />
+                        <input type="hidden" name="offset" value="<%=offset-6%>" />
+                        <input onclick="history.back()" type="submit" value="previous" />
                     </form>
+
+                    <%}%>
+
+                        <form class="next" action="/show_manga" method="POST">
+                            <input type="hidden" name="manga_title" value="<%=manga_title%>" />
+                            <input type="hidden" name="offset" value="<%=offset+6%>" />
+                            <input type="submit" value="next" />
+                        </form>
+                </div>
 </body>
 <script src="/views/show_manga/script.js"></script>
 
