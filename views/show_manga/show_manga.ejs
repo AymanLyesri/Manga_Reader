@@ -26,9 +26,9 @@
                 <h1>
                     <%=element.title%>
                 </h1>
-                <input type="hidden" name="cover_bin" value="<%=url[x-1]%>" />
+
                 <input type="hidden" name="manga_id" value="<%=element.id%>" />
-                <input loading="lazy" class="card" type="image" src="<%=url[x-1].imageSource%>" />
+                <input loading="lazy" class="card" type="image" src="data:image/jpeg;base64,<%=url[x-1]%>" />
                 <%element.availableTranslatedLanguages.forEach(lang =>{%>
                     <label for="<%=lang+x%>">
         <input

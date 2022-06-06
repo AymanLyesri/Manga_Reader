@@ -24,8 +24,8 @@ function showManga(manga_title, offset, req, res) {
                     const results = [];
                     for (const thing of things) {
                         // Good: all asynchronous operations are immediately started.
-                        url = await thing.mainCover.resolve();
-                        results.push(url);
+                        url = (await thing.mainCover.resolve()).image512;
+                        results.push(imageToBase64(url));
                     }
 
                     // Now that all the asynchronous operations are running, here we wait until they all complete.
@@ -34,10 +34,10 @@ function showManga(manga_title, offset, req, res) {
 
                 console.log("all ended :)");
 
-                var url256 = await getCovers(list);
+                var url512 = await getCovers(list);
 
                 res.render("show_manga/show_manga.ejs", {
-                    url: url256,
+                    url: url512,
                     manga_title: manga_title,
                     list: list,
                     offset: offset,

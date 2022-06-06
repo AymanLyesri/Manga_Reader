@@ -1,29 +1,39 @@
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/views/search_chapter/style.css" />
     <title>welcome</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <div class="cursor"></div>
-    <div
-      class="cover"
-      style="background-image: url('data:image/png;base64,<%=cover%>')"
-    >
-      <img src="data:image/png;base64,<%=cover%>" alt="" />
+    <div class="cover" style="background-image: url('data:image/png;base64,<%=cover[0]%>')">
+        <%cover.forEach((element)=>{%>
+            <img class="mySlides" src="data:image/jpeg;base64,<%=element%>" alt="" />
+            <%});%>
+                <button class="w3-button w3-display-left" onclick="plusDivs(-1)">
+        &#10094;
+      </button>
+                <button class="w3-button w3-display-right" onclick="plusDivs(+1)">
+        &#10095;
+      </button>
     </div>
     <p class="credits">powered by AymanLyesri and MangaDex</p>
     <form action="/show_chapter" method="POST">
-      <input type="hidden" name="manga_id" value="<%=manga_id%>" />
-      <input type="hidden" name="language" value="<%=language%>" />
-      <select name="manga_chapter">
+        <input type="hidden" name="manga_id" value="<%=manga_id%>" />
+        <input type="hidden" name="language" value="<%=language%>" />
+        <select name="manga_chapter">
         <% for (let i = 1; i <= chapters; i++) {%>
         <option value="<%=i%>"><%=i%></option>
         <%}%>
       </select>
-      <input type="submit" value="watch" />
+        <input type="submit" value="watch" />
     </form>
-  </body>
+
+    <script src="/views/search_chapter/script.js"></script>
+</body>
+
 </html>

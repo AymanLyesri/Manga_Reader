@@ -38,13 +38,7 @@ app.post("/show_manga", (req, res) => {
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 app.post("/search_chapter", (req, res) => {
-    search_chapter.searchChapter(
-        req.body.manga_id,
-        req.body.language,
-        req.body.cover_bin,
-        req,
-        res
-    );
+    search_chapter.searchChapter(req.body.manga_id, req.body.language, req, res);
 });
 
 ////////////////////////////////////////////////////////////////////////////////////////////
