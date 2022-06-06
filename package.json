@@ -2,10 +2,11 @@
     "name": "sitedemo",
     "version": "1.0.0",
     "description": "",
-    "main": "index.js",
+    "main": ".server/server.js",
     "scripts": {
         "devStart": "nodemon server/server.js",
-        "start": "pm2-runtime start ecosystem.config.js --env production"
+        "start": "pm2-runtime start ecosystem.config.js --env production",
+        "stop": "pm2-runtime stop ecosystem.config.js --env production"
     },
     "repository": {
         "type": "git",
