@@ -1,37 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/views/show_manga/style.css" />
     <title>Show mangas</title>
-</head>
+  </head>
 
-<body style="grid-template-rows: 1fr 1fr<%list.forEach(element=> {%>1fr <%})%>">
+  <body style="grid-template-rows: 1fr 1fr">
+    <div class="cursor"></div>
     <p class="credits">powered by AymanLyesri and MangaDex</p>
-    <h1>
-        <%= error %>
-    </h1>
+
     <form class="search_manga" action="/show_manga" method="POST">
-        <label for="title">Manga title</label>
-        <input type="hidden" name="offset" value="0" />
-        <input type="text" class="form-control" placeholder="Enter title" name="manga_title" />
-        <input class="search" type="submit" value="search" />
+      <input type="hidden" name="offset" value="0" />
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter title"
+        name="manga_title"
+      />
+      <input class="search" type="submit" value="search" />
     </form>
 
-    <%var x=1; list.forEach(element=> {%>
+    <% if(list.length > 0) { %> <%var x=1; list.forEach(element=> {%>
 
-        <form class="show_manga" action="/search_chapter" method="POST">
-            <h1>
-                <%=element.title%>
-            </h1>
-            <input type="hidden" name="cover_bin" value="<%=url[x-1]%>" />
-            <input type="hidden" name="manga_id" value="<%=element.id%>" />
-            <input class="card" type="image" src="data:image/png;base64,<%=url[x-1]%>" />
-            <%element.availableTranslatedLanguages.forEach(lang =>{%>
-                <label for="<%=lang+x%>">
+    <form class="show_manga" action="/search_chapter" method="POST">
+      <h1><%=element.title%></h1>
+      <input type="hidden" name="cover_bin" value="<%=url[x-1]%>" />
+      <input type="hidden" name="manga_id" value="<%=element.id%>" />
+      <input
+        class="card"
+        type="image"
+        src="data:image/png;base64,<%=url[x-1]%>"
+      />
+      <%element.availableTranslatedLanguages.forEach(lang =>{%>
+      <label for="<%=lang+x%>">
         <input
           type="radio"
           name="language"
@@ -41,29 +45,30 @@
         <img src="/icons/<%=lang%>.png" alt="<%=lang%>"
       /></label>
 
-                <%})%>
-        </form>
+      <%})%>
+    </form>
 
-        <%x++;})%>
-            <%if (offset!=0) {%>
+    <%x++;})%> <%if (offset!=0) {%>
 
-                <div class="pagination">
+    <div class="pagination">
+      <form class="previous" action="/show_manga" method="POST">
+        <input type="hidden" name="manga_title" value="<%=manga_title%>" />
+        <input type="hidden" name="offset" value="<%=offset-6%>" />
+        <input onclick="history.back()" type="submit" value="previous" />
+      </form>
 
-                    <form class="previous" action="/show_manga" method="POST">
-                        <input type="hidden" name="manga_title" value="<%=manga_title%>" />
-                        <input type="hidden" name="offset" value="<%=offset-6%>" />
-                        <input onclick="history.back()" type="submit" value="previous" />
-                    </form>
+      <%}%>
 
-                    <%}%>
+      <form class="next" action="/show_manga" method="POST">
+        <input type="hidden" name="manga_title" value="<%=manga_title%>" />
+        <input type="hidden" name="offset" value="<%=offset+6%>" />
+        <input type="submit" value="next" />
+      </form>
+    </div>
 
-                        <form class="next" action="/show_manga" method="POST">
-                            <input type="hidden" name="manga_title" value="<%=manga_title%>" />
-                            <input type="hidden" name="offset" value="<%=offset+6%>" />
-                            <input type="submit" value="next" />
-                        </form>
-                </div>
-</body>
-<script src="/views/show_manga/script.js"></script>
+    <%}%>
 
+    <h1><%= error %></h1>
+  </body>
+  <script src="/views/show_manga/script.js"></script>
 </html>

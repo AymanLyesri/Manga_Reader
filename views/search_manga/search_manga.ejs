@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/views/search_manga/style.css" />
     <title>welcome</title>
-</head>
+  </head>
 
-<body>
+  <body>
+    <div class="cursor"></div>
     <p class="credits">powered by AymanLyesri and MangaDex</p>
     <div class="wrapper">
-        <div class="typing-demo">
-            Manga for the intellectual.
-        </div>
+      <div class="typing-demo">Manga for the intellectual.</div>
     </div>
     <form action="/show_manga" method="POST">
-        <input type="hidden" name="offset" value="0" />
-        <input type="text" class="form-control" placeholder="Enter title" name="manga_title" />
-        <input type="submit" value="search" />
+      <input type="hidden" name="offset" value="0" />
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter title"
+        name="manga_title"
+      />
+      <input type="submit" value="search" />
     </form>
-
-</body>
-<script src="/views/search_manga/script.js"></script>
-
+  </body>
+  <script src="/views/search_manga/script.js"></script>
 </html>

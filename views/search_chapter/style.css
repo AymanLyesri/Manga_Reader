@@ -7,6 +7,14 @@ body{
     background-color: rgb(16, 15, 15);
 }
 
+.cursor {
+    width: 10px;
+    height: 10px;
+    border: 2px solid rgb(129, 129, 129);
+    border-radius: 40%;
+    position: absolute;
+}
+
 @media (max-width: 600px) {
     body{
         grid-template-columns: 1fr;

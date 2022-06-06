@@ -8,16 +8,29 @@
         grid-template-columns: 1fr 1fr 1fr;
         background: rgb(10, 10, 10);
     }
+
+        .cursor {
+            width: 10px;
+            height: 10px;
+            border: 2px solid rgb(129, 129, 129);
+            border-radius: 40%;
+            position: absolute;
+        }
     
-    .credits,
-    h1 {
+    .credits
+    {
         margin-top: 0;
         font: 2vh sans-serif;
         color: #ff0000;
         grid-row: 1/2;
         grid-column: 1/4;
     }
-    
+
+    h1{
+        font: 5vh sans-serif;
+        color: #ff0000;
+        transition: 0.5s;
+    }
     .search_manga {
         margin-top: 10%;
         color: white;
@@ -88,7 +101,6 @@
             grid-template-columns: 1fr;
         }
         .credits,
-        h1,
         .search_manga {
             grid-column: 1/2;
         }

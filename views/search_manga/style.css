@@ -6,6 +6,14 @@ body {
     grid-template-rows: 1fr 1fr;
 }
 
+.cursor {
+    width: 10px;
+    height: 10px;
+    border: 2px solid rgb(129, 129, 129);
+    border-radius: 40%;
+    position: absolute;
+}
+
 .credits {
     margin-top: 0;
     font: clamp(0.5em, 1vw, 2em) sans-serif;
