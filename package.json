@@ -10,7 +10,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+ssh://git@github.com/AymanLyesri/siteDemo.git"
+        "url": "git+ssh://git@github.com/AymanLyesri/Manga_Reader.git"
     },
     "author": "",
     "license": "ISC",
